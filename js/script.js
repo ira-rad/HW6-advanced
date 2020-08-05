@@ -74,60 +74,9 @@ const calculateWordLetters = (word) =>{
       getResult[letters] = !getResult[letters] ? 1 : getResult[letters]+1;
      
     };
-    const res = calculateWordLetters()
-
+  
     return getResult 
     
 }
-//const res = calculateWordLetters()
-//console.log(calculateWordLetters('Test'))
-//const res = calculateWordLetters()
-document.writeln(`<p> №6:  ${(calculateWordLetters('test'))}</p>`)
-// const calculateWordLetters = (word) =>{
-//   let result = {};
-// word.toString()
-//     for(const value of word){
-//       let letters = value.toLowerCase().toString();
-//       if(result[letters]){
-//         result[letters]++;
-//       }else{
-//         result[letters] = 1;
-//       }
-//     }
-//     return result;
-// }
-
-// const calculateWordLetters = (word) => {
-// let result = {};
-// let letters = word.toLowerCase().split('').forEach( letter =>{
-//   if(result[letter]){
-//     result[letter] ++;
-//   } else {
-//     result[letter] = 1;
-//   }
-//   return result
-// })
-// }
-// for(let letter of word){
-// let key = letter.toLowerCase();
-
-
-// }
-// return result
-// };
-
-
-// words.toLowerCase().split('').map(letter =>{
-//       result[letter] = !result[letter] ? 1 : result[letter]+1;
-//   });
-// return result
-
-//document.writeln(`<p> №6:  ${(calculateWordLetters('test'))}</p>`)
-
-// var string = 'Подсчета кол-ва вхождений каждого символа в строке',
-//     sums = {};
-// string.split('').map(function(e){
-//     //e = e.toLowerCase(); - для включения регистронезавимисомти.
-//     sums[e] = !sums[e] ? 1 : sums[e]+1;
-// });
-// document.writeln(`<p> №6:  ${sums}</p>`)
+console.log(calculateWordLetters('Test'))
+document.writeln(`<p> №6:  Результат в консолі </p>`)
