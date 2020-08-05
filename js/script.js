@@ -79,4 +79,4 @@ const calculateWordLetters = (word) =>{
     
 }
 console.log(calculateWordLetters('Test'))
-document.writeln(`<p> №6:  Результат в консолі </p>`)
+document.writeln(`<p> №6:  Результат в console </p>`)
