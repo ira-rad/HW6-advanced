@@ -27,12 +27,12 @@ const students = [{
   //1
 const getStudentsSubjects = (students) =>{
    const subjectsOfStudent = Object.keys(students.subjects);
-     return subjectsOfStudent.map(sub => sub.charAt(0).toUpperCase() + sub.slice(1).replace('_', ' ')  )
+     return subjectsOfStudent.map(sub => sub.charAt(0).toUpperCase() + sub.slice(1).replace('_', ' ').toLowerCase()  )
     } 
     document.writeln(`<p> №1:  ${getStudentsSubjects(students[0])}</p>`)
     //2 
     const getAverageMark = (students) =>{
-      const getStudentsMark = Object.values(JSON.parse(JSON.stringify(students.subjects))).flat();
+      const getStudentsMark = Object.values(students.subjects).flat();
       const getStudentsAverageMarks = getStudentsMark.reduce((a, b) => Math.floor(a + b),  0) / getStudentsMark.length;
       return getStudentsAverageMarks.toFixed(2);
     }
@@ -40,29 +40,26 @@ const getStudentsSubjects = (students) =>{
 document.writeln(`<p> №2:  ${getAverageMark(students[0])}</p>`)
    //3
    const getStudentInfo = (students) => {
-     const studentCourse = students.course;
-     const studentName = students.name;
   
-    return `Course - ${studentCourse}; Name - ${studentName};  Average Mark - ${getAverageMark(students)}`
+    const {name, course} = students;
+    return {name, course, averageMark: getAverageMark(students)}
+     
     
     }
-
-document.writeln(`<p> №3:  ${getStudentInfo(students[0])}</p>`)
+    console.log(getStudentInfo(students [0]))
+document.writeln(`<p> №3: Результат в console </p>`)
 
 //4
-const getStudentsNames = (students) => {
-  return students.map((stNames) => stNames.name).sort();
-}
-document.writeln(`<p> №4:  ${(getStudentsNames(students))}</p>`)
+const getStudentsNames = (students) => students.map((stNames) => stNames.name).sort();
+document.writeln(`<p> №4:  ${(getStudentsNames(students))}</p>`);
 
 //5
-
-const getBestStudent=(students)=>{
-  return bestStudent = (getAverageMark(students[0]) > getAverageMark(students[1]) && getAverageMark(students[0]) > getAverageMark(students[2]))? students[0].name :
-  (getAverageMark(students[1]) > getAverageMark(students[0]) && getAverageMark(students[1]) > getAverageMark(students[2]) ?  students[1].name :
- students[2].name);
+function getBestStudent(students){
+  const maxMark = Math.max(...students.map(item => getAverageMark(item)));
+  const bestStudent = students.find(item => getAverageMark(item) === maxMark);
+  return bestStudent.name;
 }
-document.writeln(`<p> №5:  ${(getBestStudent(students))}</p>`)
+console.log(getBestStudent(students));
 
 //6
 
